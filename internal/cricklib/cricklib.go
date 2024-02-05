@@ -55,7 +55,7 @@ func PrintLiveScore(matchData MatchData) {
 		matchData.BatsmanTwo, matchData.BatsmanTwoRun, matchData.BatsmanTwoBall, matchData.BatsmanTwoSR)
 
 	// Bowler details
-	bowlerDetails := fmt.Sprintf("Bowling: \n %s %s-%s (%s)\n %s %s-%s (%s)\n",
+	bowlerDetails := fmt.Sprintf("Bowling: \n %s %s-%s (%s)\n %s %s-%s (%s)\n\n",
 		matchData.BowlerOne, matchData.BowlerOneWickets, matchData.BowlerOneRun, matchData.BowlerOneOver,
 		matchData.BowlerTwo, matchData.BowlerTwoWickets, matchData.BowlerTwoRun, matchData.BowlerTwoOver)
 
