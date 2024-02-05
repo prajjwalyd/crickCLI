@@ -26,7 +26,22 @@ type MatchData struct {
 	RunRate         string `json:"runrate"`
 	BatsmanOne      string `json:"batterone"`
 	BatsmanOneRun   string `json:"batsmanonerun"`
-	// ... (rest of the fields)
+	BatsmanOneBall  string `json:"batsmanoneball"`
+	BatsmanOneSR    string `json:"batsmanonesr"`
+	BatsmanTwo      string `json:"battertwo"`
+	BatsmanTwoRun   string `json:"batsmantworun"`
+	BatsmanTwoBall  string `json:"batsmantwoball"`
+	BatsmanTwoSR    string `json:"batsmantwosr"`
+	BowlerOne       string `json:"bowlerone"`
+	BowlerOneOver   string `json:"bowleroneover"`
+	BowlerOneRun    string `json:"bowleronerun"`
+	BowlerOneWickets string `json:"bowleronewickers"`
+	BowlerOneEcon   string `json:"bowleroneeconomy"`
+	BowlerTwo       string `json:"bowlertwo"`
+	BowlerTwoOver   string `json:"bowlertwoover"`
+	BowlerTwoRun    string `json:"bowlertworun"`
+	BowlerTwoWickets string `json:"bowlertwowickers"`
+	BowlerTwoEcon   string `json:"bowlertwoeconomy"`
 }
 
 var rootCmd = &cobra.Command{
@@ -90,9 +105,21 @@ func printLiveScore(matchData MatchData) {
 	liveScore := color.New(color.Bold, color.FgHiGreen).Sprint(matchData.LiveScore)
 	runRate := color.New(color.FgHiMagenta).Sprint(matchData.RunRate)
 
-	// Print formatted live cricket score
-	fmt.Printf("%s\n%s\n%s\n%s\n", title, update, liveScore, runRate)
+	// Batsman details
+	batsmanDetails := fmt.Sprintf("Batting: \n %s %s%s SR:%s\n %s %s%s SR:%s\n",
+		matchData.BatsmanOne, matchData.BatsmanOneRun, matchData.BatsmanOneBall, matchData.BatsmanOneSR,
+		matchData.BatsmanTwo, matchData.BatsmanTwoRun, matchData.BatsmanTwoBall, matchData.BatsmanTwoSR)
+
+	// Bowler details
+	bowlerDetails := fmt.Sprintf("Bowling: \n %s %s-%s (%s)\n %s %s-%s (%s)\n",
+		matchData.BowlerOne, matchData.BowlerOneWickets, matchData.BowlerOneRun, matchData.BowlerOneOver,
+		matchData.BowlerTwo, matchData.BowlerTwoWickets, matchData.BowlerTwoRun, matchData.BowlerTwoOver)
+
+	// Print formatted live cricket score with batsman and bowler details
+	fmt.Printf("\n%s\n%s\n%s\n%s\n\n%s\n%s", title, update, liveScore, runRate, batsmanDetails, bowlerDetails)
 }
+
+
 
 func readStoredMatchID() (string, error) {
 	// Read match ID from the config file
