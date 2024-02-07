@@ -31,21 +31,21 @@ cricCLI/
 
 ### Build
 ```
-go build ./cmd/main
+go build -o crickCLI cmd/main/main.go
 ```
 
 ### Run
 If using for the first time, you need to set a match ID first, which can be found [here](https://github.com/prajjwalyd/crickCLI/blob/main/docs/matchID.md).
 
 ```
-./main edit
+./crickCLI edit
 ```
 
 After setting the match ID once, you can edit it anytime using the same commands.
 
 To see the live score:
 ```
-./main
+./crickCLI
 ```
 
 This command will fetch and display the live score of the set match ID.
