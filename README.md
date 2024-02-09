@@ -8,9 +8,7 @@ Terminal companion for live cricket scores and stats, keeping users in the game 
 ### Directory Structure:
 ```
 cricCLI/
-|-- cmd/
-|   |-- main/
-|       |-- main.go       
+|-- cmd/    
 |   |-- root.go          // Main command logic
 |   |-- edit.go          // Edit command logic
 |-- internal/
@@ -26,12 +24,13 @@ cricCLI/
 |       |-- cricklib_test.go // Unit tests for cricklib package
 |-- go.mod
 |-- go.sum
+|-- main.go
 |-- README.md
 ```
 
 ### Build
 ```
-go build -o crickCLI cmd/main/main.go
+go build -o crickCLI
 ```
 
 ### Run
@@ -52,5 +51,5 @@ This command will fetch and display the live score of the set match ID.
 
 ### Run Without Build
 ```
-go run cmd/main/main.go
+go run main.go edit
 ```
